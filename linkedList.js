@@ -31,11 +31,25 @@ export class LinkedList {
       }
    }
 
+   prepend(value) {
+      // current head 
+      let current = this.head;
+
+      // create new node 
+      let node = new Node(value);
+
+      // make next reference to current head 
+      node.nextNode = current;
+
+      // update head to be new node 
+      this.head = node;
+   }
+ 
    toString() {
       let curr = this.head;
       let str = "";
       while (curr != null) {
-         str += `( ${curr.value} )` + ' -> ' + `${curr.nextNode}`;
+         str += `( ${curr.value} ) -> ${curr.nextNode}`;
          curr = curr.nextNode;
          str = str.replace('[object Object]', "");
       }
