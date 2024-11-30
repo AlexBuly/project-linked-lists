@@ -31,6 +31,24 @@ export class LinkedList {
       }
    }
 
+   getHead() {
+      let head = this.head;
+      return head.value;
+   }
+
+   getTail() {
+      // stores current node
+      let current = this.head;
+         // while current is not null
+         while (current.nextNode != null) {
+            current = current.nextNode;
+         }
+
+         const tail = current.value;
+
+         return tail;
+   }
+
    prepend(value) {
       // current head 
       let current = this.head;
