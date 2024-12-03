@@ -37,6 +37,19 @@ export class LinkedList {
       return `Total nodes: ${size}`;
    }
 
+   at(index) {
+      // stores current node
+      let current = this.head;
+      // while current is not null
+      for (let i = 0; i < index; i++) {
+        current = current.nextNode;
+      }
+
+      const value = current.value;
+
+      return `Node at ${index}: ${value}`;
+  }
+
    getHead() {
       let head = this.head;
       return `Head: ${head.value}`;
