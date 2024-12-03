@@ -1,8 +1,9 @@
 import { Node } from "./Node.js";
 
 export class LinkedList {
-   constructor(head) {
+   constructor(head, size) {
     this.head = null;
+    this.size = 0;
    }
  
    append(value) {
@@ -27,13 +28,18 @@ export class LinkedList {
 
          // replace last with new node 
          current.nextNode = newNode;
-
       }
+      this.size++;
+   }
+
+   getSize() {
+      const size = this.size;
+      return `Total nodes: ${size}`;
    }
 
    getHead() {
       let head = this.head;
-      return head.value;
+      return `Head: ${head.value}`;
    }
 
    getTail() {
@@ -46,7 +52,7 @@ export class LinkedList {
 
          const tail = current.value;
 
-         return tail;
+         return `Tail: ${tail}`;
    }
 
    prepend(value) {
@@ -61,6 +67,8 @@ export class LinkedList {
 
       // update head to be new node 
       this.head = node;
+
+      this.size++;
    }
  
    toString() {
