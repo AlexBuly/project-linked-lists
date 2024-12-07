@@ -29,6 +29,7 @@ export class LinkedList {
          // replace last with new node 
          current.nextNode = newNode;
       }
+      // Increment size by 1
       this.size++;
    }
 
@@ -38,16 +39,42 @@ export class LinkedList {
    }
 
    at(index) {
-      // stores current node
       let current = this.head;
-      // while current is not null
+      // while current is less than index passed
       for (let i = 0; i < index; i++) {
         current = current.nextNode;
       }
 
       const value = current.value;
 
-      return `Node at ${index}: ${value}`;
+      return `Node at index ${index}: ${value}`;
+  }
+
+  pop(value) {
+   // add new node in memory 
+   let newNode = new Node(value);
+
+   // stores current node
+   let current;
+
+   // list is empty, make node head
+   if (this.head == null) 
+      this.head = newNode;
+
+   // get head 
+   else {
+      current = this.head;
+
+      // while current is not null
+      while (current.nextNode != null) {
+         current = current.nextNode;
+      }
+
+      // replace last with new node 
+      current.nextNode = null;
+   }
+   // Increment size by 1
+   this.size--;
   }
 
    getHead() {
@@ -94,4 +121,14 @@ export class LinkedList {
       }
       return str  
    }
+
+   contains(value) {
+    let current = this.head;
+    while (current.nextNode != null) {
+      current = current.nextNode;
+      let str = JSON.stringify(current);
+      return `Lists includes ${value}?: ${str.includes(value)}`;
+    }
+   }
+   
 }
