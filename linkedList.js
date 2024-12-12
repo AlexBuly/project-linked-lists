@@ -50,10 +50,7 @@ export class LinkedList {
       return `Node at index ${index}: ${value}`;
   }
 
-  pop(value) {
-   // add new node in memory 
-   let newNode = new Node(value);
-
+  pop() {
    // stores current node
    let current;
 
@@ -68,13 +65,15 @@ export class LinkedList {
       // while current is not null
       while (current.nextNode != null) {
          current = current.nextNode;
+         const myArr = Array.from(current);
+         return myArr.length;
       }
 
-      // replace last with new node 
-      current.nextNode = null;
+      // convert to array
+      
    }
    // Increment size by 1
-   this.size--;
+
   }
 
    getHead() {
@@ -129,6 +128,18 @@ export class LinkedList {
       let str = JSON.stringify(current);
       return `Lists includes ${value}?: ${str.includes(value)}`;
     }
+   }
+
+   find(value) {
+      let curr = this.head;
+      let str = "";
+      let arr;
+      while (curr != null) {
+         str += `${curr.value} `;
+         curr = curr.nextNode;
+         arr = str.split(" ");
+      }
+      return arr.indexOf(value);  
    }
    
 }
