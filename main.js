@@ -19,3 +19,5 @@ console.log(list.getSize());
 console.log(list.contains("snake"));
 console.log(list.contains("snail"));
 console.log(list.find("parrot"));
+console.log(list.find("fish"));
+

@@ -139,7 +139,9 @@ export class LinkedList {
          curr = curr.nextNode;
          arr = str.split(" ");
       }
-      return arr.indexOf(value);  
+
+      if (arr.includes(value)) return arr.indexOf(value);  
+      return null;
    }
    
 }
