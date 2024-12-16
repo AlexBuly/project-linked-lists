@@ -1,11 +1,12 @@
 import { Node } from "./Node.js";
 
 export class LinkedList {
-   constructor(head, size) {
+   constructor() {
     this.head = null;
     this.size = 0;
    }
- 
+
+
    append(value) {
       // add new node in memory 
       let newNode = new Node(value);
@@ -51,31 +52,25 @@ export class LinkedList {
   }
 
   pop() {
-   // stores current node
-   let current;
+   if (!this.head) {
+      return null; // Empty list
+    }
 
-   // list is empty, make node head
-   if (this.head == null) 
-      this.head = newNode;
+    if (!this.head.nextNode) {
+      // Only one node in the list
+      this.head = null; 
+      return;
+    }
 
-   // get head 
-   else {
-      current = this.head;
+    let current = this.head;
+    // is the current's next has a non-null next
+    while (current.nextNode.nextNode != null) {
+      current = current.nextNode;
+    }
 
-      // while current is not null
-      while (current.nextNode != null) {
-         current = current.nextNode;
-         const myArr = Array.from(current);
-         return myArr.length;
-      }
-
-      // convert to array
-      
-   }
-   // Increment size by 1
-
+    current.nextNode = null; // Remove the last node
+    this.size--;
   }
-
    getHead() {
       let head = this.head;
       return `Head: ${head.value}`;
@@ -94,6 +89,13 @@ export class LinkedList {
          return `Tail: ${tail}`;
    }
 
+   
+      getHead() {
+         let head = this.head;
+         return `Head: ${head.value}`;
+      }
+   
+
    prepend(value) {
       // current head 
       let current = this.head;
@@ -108,20 +110,10 @@ export class LinkedList {
       this.head = node;
 
       this.size++;
-   }
- 
-   toString() {
-      let curr = this.head;
-      let str = "";
-      while (curr != null) {
-         str += `( ${curr.value} ) -> ${curr.nextNode}`;
-         curr = curr.nextNode;
-         str = str.replace('[object Object]', "");
-      }
-      return str  
+   
    }
 
-   contains(value) {
+  contains(value) {
     let current = this.head;
     while (current.nextNode != null) {
       current = current.nextNode;
@@ -142,6 +134,17 @@ export class LinkedList {
 
       if (arr.includes(value)) return arr.indexOf(value);  
       return null;
+   }
+
+   toString() {
+      let curr = this.head;
+      let str = "";
+      while (curr != null) {
+         str += `( ${curr.value} ) -> ${curr.nextNode}`;
+         curr = curr.nextNode;
+         str = str.replace('[object Object]', "");
+      }
+      return str  
    }
    
 }

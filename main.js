@@ -10,14 +10,15 @@ list.append("snake");
 list.append("turtle");
 list.prepend("rabbit");
 
-
-console.log(list.toString());
-console.log(list.getHead());
-console.log(list.getTail());
+list.pop();
 console.log(list.at(3));
 console.log(list.getSize());
 console.log(list.contains("snake"));
 console.log(list.contains("snail"));
 console.log(list.find("parrot"));
 console.log(list.find("fish"));
+console.log(list.getHead());
+console.log(list.getTail());
+console.log(list.toString());
+
 
