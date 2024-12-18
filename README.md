@@ -1,1 +1,2 @@
 # project-linked-lists
+A linked list class that contains a method to add a node to the end of the list (append(value)), add a node to the beginning (prepend(value)), remove an element from the end (pop()), return the size of the linked list (getSize()), find a value given index (at(index)), return the head (getHead()), return the tail (getTail()), return true if a list contains a value (contains(value)), find index given a value (find(value)), and return a string representation of the linked list (toString()). 
